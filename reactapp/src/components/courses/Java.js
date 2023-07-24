@@ -3,8 +3,7 @@ import NavBar from "../navbar/NavBar";
 import './java.css';
 const Java=()=>{
     return(
-        <div style={{display:'flex'}}>
-            <NavBar/>
+    
         <div className="java">
             <div className="cls1">
                 <h1 className="jav"> Java Fundamentals</h1>
@@ -33,7 +32,6 @@ const Java=()=>{
                 <p>1.5 Basic Problem solving</p>
                 <iframe width="768" height="432" src="https://www.youtube.com/embed/eIrMbAQSU34" title="Java Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
-        </div>
         </div>
     )
 };

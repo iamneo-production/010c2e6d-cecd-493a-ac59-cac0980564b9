@@ -4,12 +4,14 @@ import { AiFillHome} from 'react-icons/ai';
 import {IoBook} from 'react-icons/io5';
 import {PiCertificateFill} from 'react-icons/pi'
 import { MdAccountCircle } from "react-icons/md";
+import { VscFeedback } from "react-icons/vsc";
+import FeedbackIcon from '@mui/icons-material/Feedback';
 import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 
 const NavBar= ({Children}) => {
 
-  const[isOpen,setIsOpen] =useState(false);
+  const[isOpen,setIsOpen] =useState(true);
   const toggle=()=> setIsOpen(!isOpen);
   const menuItem=[
     {
@@ -23,6 +25,11 @@ const NavBar= ({Children}) => {
       icon:<IoBook/>
     },
     {
+      path:"/components/dashboard/Dashboard",
+      name:"Dashboard",
+      icon:<FaTh/>
+    },
+    {
       path:"/components/assessment/Assessment",
       name:"Assessment",
       icon:<FaClipboardCheck/>
@@ -31,6 +38,11 @@ const NavBar= ({Children}) => {
       path:"/components/certificate/Certification",
       name:"Certification",
       icon:<PiCertificateFill/>
+    },
+    {
+      path:"/components/feedback/Feedback",
+      name:"Feedback",
+      icon:<FeedbackIcon/>
     },
     {
       path:"/components/profile/Profile",
@@ -42,9 +54,9 @@ const NavBar= ({Children}) => {
       <div className='container'>
         <div style={{width:isOpen ? "200px": "50px"}} className='sidebar'>
           <div className='top_section'>
-            <h1 style={{display:isOpen ? "block": "none"}} className='logo'>LMS</h1>
-            <div style={{marginLeft:isOpen ? "60px": " 0px"}}className='bars'>
-              <FaBars onClick={toggle}/>
+            <h1 style={{display:isOpen ? "block": "none"}} className='logo'></h1>
+            <div style={{marginLeft:isOpen ? "0px": " 0px"}}className='bars'>
+              <FaBars onClick={toggle}/>&nbsp;&nbsp;&nbsp;
             </div>
           </div>
           {
