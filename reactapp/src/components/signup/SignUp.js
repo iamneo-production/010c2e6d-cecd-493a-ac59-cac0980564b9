@@ -1,55 +1,44 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './SignUp.css'; // Import the CSS file
-import { Link,useNavigate} from 'react-router-dom';
 import {BsFacebook,BsGithub,BsLinkedin,BsGoogle} from 'react-icons/bs';
+import { Link,useNavigate} from 'react-router-dom';
 const SignUp = () => {
   const navigate=useNavigate('');
   const [name,setUsername]=useState('');
   const [email, setEmail] = useState('');
-  const [roll,setRole]=useState('');
+  const [role,setRole]=useState('');
   const [password, setPassword] = useState('');
   const [checkPassword,setCheckPassword] = useState('');
-  const [error,setError]=useState('');
+  const [error,setErrors]=useState('');
+  const[isSubmit,setIsSubmit]=useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-   if(password=== checkPassword)
-   {
-    const data ={
-      checkPassword,
-      email,
-      name,
-      password,
-      roll,
-    };
-    fetch('http://localhost:8080/api/lms/signup',
-    {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify(data),
-    })
-    .then(response=>{
-      if(response.ok){
+  const handleSubmit=async(event)=>{
+    event.preventDefault();
+    setIsSubmit(true);
+    try{
+      const response=await axios.post('http://localhost:8181/api/v1/auth/register',{
+        name:name,
+        email:email,
+        password:password
+  
+      });
+      console.log(response.status);
+      if(response.status===200){
         setUsername('');
         setEmail('');
         setRole('');
         setPassword('');
         setCheckPassword('');
-        navigate('/components/home/Home');
+        navigate("/components/home/Home");
       }
-      else{
-        setError('Faild to signup.');
-      }
-    })
-    .catch(error=>{
-      setError('An error occurred');
-    });
-   }
-   else{
-    setError('Password mismatch');
-   }
+      
+    }
+    catch(error){
+      alert(error);
+      setIsSubmit(false);
+  
+    }
   };
 
   return (
@@ -79,17 +68,11 @@ const SignUp = () => {
         />
       </div>
       <div>
-      <select
-            value={roll}
-            onChange={(e) => setRole(e.target.value)}
-            required
-          >
-            <option className="sl" value="">
-              Select the Role
-            </option>
-            <option value="Student">Student</option>
-            <option value="Instructor">Instructor</option>
-          </select>
+        <select value={role} onChange={(e)=> setRole(e.target.value)}>
+     <option  className='sl' value="">Select the Role</option>
+     <option value="Student">Student</option>
+     <option value="Instructor">Instructor</option>
+</select>
       </div>
       <div>
         <input
@@ -113,20 +96,18 @@ const SignUp = () => {
       </div>
       {error && <p className='error'>{error}</p>}
       <button type="submit">Sign Up</button>
-      <br>
-      </br><br></br>
-      <div className="links-container">
-       <p>Already have a account? <Link to="/">Login</Link></p>
-       <hr></hr>
-       <p style={{textAlign:'center'}} >or</p>
-       <div class="social-login">
-      
-      <button><BsGoogle/></button>
-      <button>< BsFacebook/></button>
-      <button><BsGithub/></button>
-      <button><BsLinkedin/></button>
-    </div>
-      </div>
+    
+<div className="links-container">
+ <p>Already have a account? <Link to="/">Login</Link></p>
+ <hr></hr>
+ <p style={{textAlign:'center'}} >or</p>
+ <div class="social-login">
+ <button style={{marginRight:'4%'}}><BsGoogle /></button>
+<button style={{marginRight:'4%'}}>< BsFacebook/></button>
+<button style={{marginRight:'4%'}}><BsGithub/></button>
+<button style={{marginRight:'4%'}}><BsLinkedin/></button>
+</div>
+</div>
     </form>
     </div>
   );

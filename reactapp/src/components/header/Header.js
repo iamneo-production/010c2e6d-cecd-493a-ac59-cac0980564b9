@@ -1,12 +1,20 @@
-import React from "react";
+// Header.js
+import React from 'react';
+import './Header.css';
 import { Link } from 'react-router-dom';
-const Header=()=>{
-    return(
+import { FiLogOut } from "react-icons/fi";
+
+const Header = () => {
+  return (
+    <div className="header">
         <div>
-            <div className="head">
-                <button style={{float: 'right'}}><Link to='/about'>Logout</Link></button>
-            </div>
+        <h1 className='head'>learn.co</h1>
         </div>
-    )
+    <div style={{display:'flex'}}>
+    <button className='btnout'><Link to='/'><FiLogOut/></Link></button>
+    </div>
+    </div>
+  );
 };
+
 export default Header;

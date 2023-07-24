@@ -2,10 +2,8 @@
 {
     font-style: italic;
     padding-left: 50px;
-    height: 50%;
     background-size: cover;
-    width: 220%;
-    height: 60%;
+    height: 25%;
     background-image: url('https://res.cloudinary.com/ddlw9iej1/image/upload/v1689303061/arrangement-different-medals_a0qqdh.jpg');
 }
 .rewards{
@@ -13,6 +11,7 @@
 	display: flex;
 }
 .bt{
+    color: white;
 	padding: 10px;
 	margin: 10Px;
 	background-color: #2A265F;

@@ -2,21 +2,27 @@ body {
 	background-color: #ececec;
 	font-family: 'Muli', sans-serif;
 	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100vh;
 	margin: 0;
+	max-width: 100%;
 }
 .ass-head{
     font-style: italic;
     padding-left: 50px;
-    height: 50%;
+    height: 25%;
     background-image: url('https://res.cloudinary.com/ddlw9iej1/image/upload/v1689243627/top-view-elections-concept-with-copy-space_1_qxbvwi.jpg');
     background-size: cover;
+	background-position: center;
+  z-index: -10;
 }
-.assess-container {
- margin-top: 2%; 
- padding-left: 2%;
+.tlin
+{
+	color:white;
+	text-decoration: none;
 }
 h3{
-    text-align:;
     padding-top: 20px;
 }
 .assess {
@@ -24,7 +30,7 @@ h3{
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	display: flex;
 	margin: 20px;
-	width: 500px;
+	
 	transition: .4s ease all;
   overflow: hidden;
 }
@@ -49,7 +55,7 @@ h3{
 	background-color: #2A265F;
 	color: #fff;
 	padding: 30px;
-	max-width: 300px;
+	max-width: 200px;
 }
 
 .assess-preview a {
@@ -70,6 +76,7 @@ h3{
 	padding: 10px;
 	margin: 10Px;
 	background-color: #2A265F;
+	color: white;
 }
 .session{
 	padding-left: 5%;
@@ -82,7 +89,6 @@ h3{
 }	
 .abtn {
 	background-color: #2A265F;
-
 	border-radius: 50px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	color: #fff;
@@ -117,10 +123,14 @@ h3{
   top: 199px;
   left: -230px;
   padding: 20px 30px;
-  width: 700px;
+  width: 800px;
   border-radius: 10px;
 }
-.part
+.det{
+	width:250px;
+	text-align: center;
+}
+.ass-part
 {
     display: flex;
 }

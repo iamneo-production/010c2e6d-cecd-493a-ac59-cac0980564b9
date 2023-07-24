@@ -11,6 +11,7 @@
   text-align: center;
 }
 .login-form {
+    background-image: url('https://res.cloudinary.com/ddlw9iej1/image/upload/v1689268507/books-library_zhapdm.jpg');
     border-radius: 25px;
     max-width: 400px;
     margin-right: 90px auto;
@@ -39,7 +40,7 @@
     padding: 10px;
     margin: 10px;
     border-radius: 25px;
-    background-color: #0066ff;
+    background-color: #2A265F;
     color: white;
     font-size: 16px;
     border: none;
@@ -47,7 +48,7 @@
   }
   
   .login-form button[type='submit']:hover {
-    background-color: #6094f4;
+    background-color: #1d1686;
   }
  .error-message {
       color: red;
